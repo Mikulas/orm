@@ -8,6 +8,7 @@
 
 namespace Nextras\Orm\Entity;
 
+use Nextras\Orm\ContainerFactoryNotImplementedException;
 use Nextras\Orm\Entity\Reflection\EntityMetadata;
 use Nextras\Orm\Entity\Reflection\PropertyMetadata;
 use Nextras\Orm\Model\MetadataStorage;
@@ -473,6 +474,10 @@ abstract class AbstractEntity implements IEntity
 	protected function createPropertyContainer(PropertyMetadata $metadata)
 	{
 		$class = $metadata->container;
+		if (!is_subclass_of($class, IInstantiableProperty::class, TRUE)) {
+			throw new ContainerFactoryNotImplementedException(
+				"Overwrite '" . __CLASS__ . "::createPropertyContainer' or implement IInstantiableProperty in '$class'.");
+		}
 		return new $class($this, $metadata);
 	}
 

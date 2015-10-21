@@ -64,6 +64,11 @@ class NotImplementedException extends LogicException
 }
 
 
+class ContainerFactoryNotImplementedException extends NotImplementedException
+{
+}
+
+
 class NotSupportedException extends LogicException
 {
 }

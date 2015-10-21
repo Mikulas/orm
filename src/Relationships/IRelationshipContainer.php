@@ -9,10 +9,11 @@
 namespace Nextras\Orm\Relationships;
 
 use Nextras\Orm\Entity\IEntity;
+use Nextras\Orm\Entity\IInstantiableProperty;
 use Nextras\Orm\Entity\IPropertyContainer;
 
 
-interface IRelationshipContainer extends IPropertyContainer
+interface IRelationshipContainer extends IPropertyContainer, IInstantiableProperty
 {
 
 	/**

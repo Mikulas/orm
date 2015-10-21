@@ -12,10 +12,11 @@ use Countable;
 use IteratorAggregate;
 use Nextras\Orm\Entity\IEntity;
 use Nextras\Orm\Collection\ICollection;
+use Nextras\Orm\Entity\IInstantiableProperty;
 use Nextras\Orm\Entity\IProperty;
 
 
-interface IRelationshipCollection extends IProperty, IteratorAggregate, Countable
+interface IRelationshipCollection extends IProperty, IInstantiableProperty, IteratorAggregate, Countable
 {
 
 	/**
